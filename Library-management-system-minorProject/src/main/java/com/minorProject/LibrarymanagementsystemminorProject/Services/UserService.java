@@ -16,6 +16,7 @@ public class UserService {
 	@Autowired
 	UserRepo userRepo;
 	
+	
 	public void createUser(User user) {
 		// TODO Auto-generated method stub
 		userRepo.save(user);
@@ -30,9 +31,9 @@ public class UserService {
 
 	
 
-	public Optional<User> getUserById(int userId) {
+	public User getUserById(int userId) {
 		// TODO Auto-generated method stub
-		return userRepo.findById(userId);
+		return userRepo.findById(userId).orElse(null);
 	}
 
 }

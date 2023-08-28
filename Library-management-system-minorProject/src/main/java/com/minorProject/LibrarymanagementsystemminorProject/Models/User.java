@@ -92,9 +92,9 @@ public class User {
 	
 	@OneToMany(mappedBy = "user")
 	@JsonIgnoreProperties(value="user")
-	List<Book> bookList;
+	private List<Book> bookList;
 	
 	@OneToMany(mappedBy = "user")
-	List<Transaction> transactionList;
+	private List<Transaction> transactionList;
 	
 }

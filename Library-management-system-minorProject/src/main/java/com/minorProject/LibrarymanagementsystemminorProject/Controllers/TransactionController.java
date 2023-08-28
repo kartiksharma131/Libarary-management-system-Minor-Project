@@ -14,12 +14,12 @@ public class TransactionController {
 	TransactionService transactionService;
 	
 	@PostMapping("/transaction/issue")
-	public void issueBook(@RequestParam("userId")int userId,@RequestParam("bookId") int bookId) throws Exception {
-		transactionService.issueBook(userId,bookId);
+	public String issueBook(@RequestParam("userId")int userId,@RequestParam("bookId") int bookId) throws Exception {
+		return transactionService.issueBook(userId,bookId);
 	}
 	
 	@PostMapping("/transaction/return")
-	public void returnBook(@RequestParam("studentId")int userId,@RequestParam("bookId")int bookId) {
+	public void returnBook(@RequestParam("studentId")int userId,@RequestParam("bookId")int bookId) throws Exception {
 		transactionService.returnBook(userId,bookId);
 	}
 }

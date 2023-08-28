@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -89,6 +91,7 @@ public class User {
 	private Date updatedOn;
 	
 	@OneToMany(mappedBy = "user")
+	@JsonIgnoreProperties(value="user")
 	List<Book> bookList;
 	
 	@OneToMany(mappedBy = "user")

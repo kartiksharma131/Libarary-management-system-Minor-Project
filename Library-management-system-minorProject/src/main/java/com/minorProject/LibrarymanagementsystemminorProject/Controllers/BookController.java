@@ -1,6 +1,7 @@
 package com.minorProject.LibrarymanagementsystemminorProject.Controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,8 +35,9 @@ public class BookController {
 	}
 	
 	@GetMapping("/book/getBookById/{bookId}")
-	public void getBookById(@PathVariable("bookId") int bookId) {
-		bookService.getBookById(bookId);
+	public Optional<Book> getBookById(@PathVariable("bookId") int bookId) {
+		return bookService.getBookById(bookId);
+		
 	}
 	
 	@GetMapping("book/get/all")

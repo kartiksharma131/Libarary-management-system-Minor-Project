@@ -4,6 +4,8 @@ import java.util.Date;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -78,9 +80,12 @@ public class Transaction {
 	
 	@ManyToOne
 	@JoinColumn
+	@JsonIgnoreProperties(value="transactionList")
 	private User user;
+	
 	@ManyToOne
 	@JoinColumn
+	@JsonIgnoreProperties(value="transactionList")
 	private Book book;
 	
 	private int fine;

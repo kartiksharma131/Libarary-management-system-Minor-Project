@@ -14,6 +14,9 @@ public class AuthorService {
 	AuthorRepo authorRepo;
 	public Author createOrGetAuthor(Author author) {
 		Author authorFromDb = authorRepo.findAuthor(author.getEmail());
+		if(authorFromDb==null) {
+			authorFromDb= authorRepo.save(author);
+		}
 		return authorFromDb;
 	}
 }

@@ -1,5 +1,6 @@
 package com.minorProject.LibrarymanagementsystemminorProject.Services;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -94,6 +95,10 @@ public class TransactionService {
 			throw new Exception("Book or student is either not present or book is not assigned to the student , unable to return");
 			
 		}
+		List<Transaction> issueTxnList  = transactionRepo.findByBookAndUserAndTransactionTypeOrderByIdDesc(book, user, TransactionType.ISSUE);
+		Transaction issueTxn= issueTxnList.get(0);
+		
+		//to check the fine scenario
 		
 	}
 

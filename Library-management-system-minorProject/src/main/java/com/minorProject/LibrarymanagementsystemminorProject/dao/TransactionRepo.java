@@ -13,5 +13,6 @@ public interface TransactionRepo extends JpaRepository<Transaction, Integer>{
 
 	//i want to find the book and student with transaction type - issue it schould desc wrt id
 	List<Transaction> findByBookAndUserAndTransactionTypeOrderByIdDesc(Book book,User user,TransactionType transactionType);
+	Transaction sindTop1ByBookAndUserAndTransactionTypeOrderByDesc(Book book, User user,TransactionType transactionType);
 }
 
